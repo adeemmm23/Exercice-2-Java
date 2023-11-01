@@ -1,8 +1,8 @@
 public class PoupeeRusse {
-    private PoupeeRusse dansPoupeeRusse;
-    private PoupeeRusse contientPoupeeRusse;
     private int taille;
     private boolean isOuvert = false;
+    private PoupeeRusse dansPoupeeRusse;
+    private PoupeeRusse contientPoupeeRusse;
 
     public PoupeeRusse(int taille) {
         this.taille = taille;
@@ -31,21 +31,32 @@ public class PoupeeRusse {
     }
 
     public void placerDans(PoupeeRusse contientPoupeeRusse) {
-        if (contientPoupeeRusse.isOuvert && contientPoupeeRusse.taille > this.taille
-                && this.contientPoupeeRusse.dansPoupeeRusse != null) {
+        if (this.isOuvert && this.contientPoupeeRusse == null && contientPoupeeRusse.taille < this.taille) {
             this.contientPoupeeRusse = contientPoupeeRusse;
-            System.out.println("Poupee est placée");
+            System.out.println("Poupee de taille " + contientPoupeeRusse.taille + " placée dans la poupee de taille "
+                    + this.taille);
         } else {
-            System.out.println("la poupee est petit");
+            if (!this.isOuvert) {
+                System.out.println("La poupee est fermée");
+            } else if (this.contientPoupeeRusse != null) {
+                System.out.println("La poupee contient deja une poupee");
+            } else {
+                System.out.println("La poupee est trop grande");
+            }
         }
     }
 
     public void sortirDe() {
-        if (this.contientPoupeeRusse.isOuvert && this.contientPoupeeRusse != null) {
+        if (this.isOuvert && this.contientPoupeeRusse != null) {
+            System.out.println("La poupee de taille " + this.taille + " a été sortie de la poupee de taille "
+                    + this.contientPoupeeRusse.taille);
             this.contientPoupeeRusse = null;
-            System.out.println("Poupee out");
         } else {
-            System.out.println("il n'ya pas une poupe ou la poupe est ferme");
+            if (!this.isOuvert) {
+                System.out.println("La poupee est fermée");
+            } else {
+                System.out.println("La poupee ne contient pas de poupee");
+            }
         }
     }
 }

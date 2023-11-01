@@ -3,7 +3,12 @@ public class Main {
         PoupeeRusse poupeeRusse1 = new PoupeeRusse(2);
         PoupeeRusse poupeeRusse2 = new PoupeeRusse(1);
 
+        poupeeRusse1.ouvrir();
+
         poupeeRusse1.placerDans(poupeeRusse2);
-        poupeeRusse2.placerDans(poupeeRusse1);
+        poupeeRusse1.fermer();
+        poupeeRusse1.placerDans(poupeeRusse2);
+        poupeeRusse1.ouvrir();
+        poupeeRusse1.sortirDe();
     }
 }
