@@ -10,5 +10,6 @@ public class Main {
         poupeeRusse1.placerDans(poupeeRusse2);
         poupeeRusse1.ouvrir();
         poupeeRusse1.sortirDe();
+        poupeeRusse1.fermer();
     }
 }
